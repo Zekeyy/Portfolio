@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden; /* Keep horizontal scrolling disabled */
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+body {
+    width: 100%;
+    min-height: 100vh; /* Ensure body covers the full viewport */
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(35,81,103,1) 100%);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0); /* Transparent at first */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1000;
+    padding: 15px 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+nav.scrolled {
+    background-color: transparent; /* Make the navbar visible after scrolling */
+   
+}
+
+/* New class for hiding navbar */
+nav.hide-nav {
+    top: -100px; /* Hide navbar when about section is reached */
+    transition: top 0.4s ease-in-out;
+}
+
+.return-home-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    margin: 10px;
+   padding: 10px 20px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px#5291ad;
+   border-radius: 10px;
+   cursor: pointer;
+    background-color: #235167;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 50%;
+    display: none;
+    z-index: 999;
+}
+
+.return-home-btn {background-image: linear-gradient(to right, #283048 0%, #859398  51%, #283048  100%)}
+
+
+ .return-home-btn:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+.return-home-btn.show {
+    display: block; /* Show button when the about section is reached */
+}
+
+ 
+
+section {
+    min-height: 100vh; /* Each section takes full screen height */
+    padding: 80px 0; /* Adds space, preventing content from hiding behind navbar */
+}
+
+#home {
+    padding-top: 10vh; /* Prevents home section from being hidden under navbar */
+}
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logo span{
+    color: rgb(226, 226, 226);
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+.hamburg {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+ .cancel{
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: black;
+    font-size: 2rem;
+    display: none;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #EEEEEE;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.link a:hover {
+    color: #C73659;
+}
+
+.nav-container .links a::before{
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+   
+    transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before{
+    width: 100%;
+}
+
+.nav-container .contact-btn{
+    background-color: transparent;
+    border-radius: 20px;
+    transition: 0.2s linear;
+}
+
+.nav-container .contact-btn a{
+    color: rgb(255, 255, 255);
+    transition: 0.3s linear;
+}
+
+.nav-container .contact-btn:hover, .nav-container .contact-btn:hover a{
+   
+    color: white;
+    cursor: pointer;
+}
+
+.nav-container .links a:hover{
+    color: rgb(37, 87, 116);
+    text-shadow: 0 0 10px #1a1a1a;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+ 
+}
+
+.dropdown a:hover {
+    background:  rgb(109,67, 0);
+    
+}
+
+/* Show dropdown */
+.dropdown.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown .links a:hover{
+    background-color: rgb(109,67, 0);
+}
+
+section {
+    min-height: 100vh; /* Ensures each section takes up full screen height */
+    padding: 50px 0; /* Adds some space */
+}
+
+.main-container {
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack items vertically if needed */
+    text-align: center;
+}
+
+.main-container .image {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%;
+}
+
+.main-container .image img {
+    width: 200px; /* Adjust the size as needed */
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures the image fills the circle */
+}
+
+
+.main-container .content{
+    color: rgb(255, 255, 255);
+    width: 40%;
+    min-height: 100px;
+}
+
+.content h1{
+    font-size: clamp(1rem, 2rem + 5vw, 3rem);
+    
+
+}
+
+.content h1 span{
+    color: #23b4ce;
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.typewriter {
+    font-weight: 600;
+    font-size: clamp(1rem, 1rem + 5vw, 2rem);
+    color: rgb(255, 255, 255);
+}
+
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 2.5rem;
+    color: #23b4ce;
+    text-shadow: 0 0 5px rgb(0, 0, 0);
+    animation: typing 2s steps(9, end) forwards, blink 0.6s infinite;
+    width: fit-content; /* Make the width fit the content */
+}
+
+/* Typing animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+/* Grid for Projects Section */
+#projects {
+    padding: 2.4rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between grid items */
+    margin-top: 20px;
+}
+.project-box {
+    background-color:  #1a1a1a;
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 260px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.project-box:hover {
+    transform: scale(1.05); /* Zooms in the whole box slightly */
+}
+
+.project-box img {  
+    width: 400px;
+    height: 80%; /* Make the image take half the box */
+    object-fit: cover; /* Ensure it fills the area properly */
+    border-radius: 6px;
+}
+
+.project-box p {
+    margin-top: auto; /* Pushes the text to the bottom */
+    color: rgb(223, 221, 221);
+    font-size: 12px;
+}
+
+
+
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adjust spacing */
+    font-size: 2rem;
+}
+
+.line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: rgb(255, 255, 255); /* Adjust color */
+}
+
+
+/* Skill Section */
+#skills {
+    padding: 20px;
+    text-align: center;
+    color:#ffffff
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 200px;
+}
+
+.skill-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 30%; /* Makes each box take 30% of the container */
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
+.skill-box:hover{
+    transform: scale(1.05);
+}
+.skill-box img {
+    width: 50px; /* Adjust the width of the logo */
+    height: auto;
+    margin-right: 20px; /* Space between the logo and the name */
+}
+
+.skill-box p {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Make sure the layout is responsive */
+@media (max-width: 768px) {
+    .skill-box {
+        flex-basis: 45%; /* Adjusts the layout for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-box {
+        flex-basis: 100%; /* Stacks items for very small screens */
+    }
+}
+
+
+.zekey-logo {
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #fff; /* White background to make the logo stand out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the image fits within the rounded corners */
+}
+
+.zekey-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the whole container */
+    border-radius: 10px; /* Slight border radius to match the container */
+}
+
+/* Hover effect */
+.zekey-logo:hover {
+    transform: scale(1.05); /* Slightly enlarges the logo on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow for hover effect */
+}
+
+
+.content p{
+    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
+    margin: 10px 0;
+}
+
+.social-links i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color:transparent;
+    border: 0.2rem solid rgb(255, 255, 255);
+    border-radius: 50%;
+    color:rgb(255, 255, 255);
+    margin: 5px 10px;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
+}
+#home {
+    padding-top: 60px; /* Adjust based on navbar height */
+}
+.social-links i:hover{
+    scale: 1.3;
+    color: rgb(0, 0, 0);
+    background-color: #235167;
+    filter: drop-shadow(0 0 10px#235167);
+}
+
+.content button{
+    width: 40%;
+    height: 6vh;
+    margin: 30px;
+    background-color:  #1a1a1a;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 100%;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.2s linear;
+    cursor: pointer;
+}
+
+
+.content button:hover{
+ scale: 1.1;
+ color: rgb(255, 255, 255);
+ border: 2px solid rgb(3, 3, 3);
+ background-color: transparent;
+ font-weight: 700;
+ box-shadow: 0 0 40px rgb(37, 37, 37);
+}
+
+
+
+@media (max-width:884px) {
+    body{
+        overflow-y: visible;
+    }
+
+    nav .logo{
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+    }
+
+    .main-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container .links{
+        display: none;
+    }
+
+    .hamburg,.cancel{
+        display: block;
+    }
+
+    .main-container .content{
+        width: 80%;
+    }
+
+    .social-links i{
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .cancel{
+        color: white;
+    }
+
+    .main-container .image{
+        width: 80%;
+        margin-bottom: 0px;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .links {
+        display: none;
+    }
+
+    .hamburg {
+        display: block;
+    }
+}
+/* Elegant Footer Styling */
+#footer {
+    background: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+#footer h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#footer p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+#footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+/* Elegant About Me Section */
+#about {
+    padding: 2.4rem;
+    text-align: center;
+    color: #ffffff;
+ 
+}
+
+.about-container {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    
+}
+
+.about-container img {
+    width: 200px;
+    height: 200px;
+    border-radius: 30%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+}
+
+.about-info {
+    text-align: left;
+    max-width: 500px;
+}
+
+#about h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adjust spacing */
+    font-size: 2rem;
+    
+}
+
+#about p {
+    font-size: 16px;
+    margin: 70px 0;
+    color: #fcfcfc;
+}

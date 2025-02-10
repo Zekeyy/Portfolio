@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" >
+                <span><img src="images/zekey.jpg" class="zekey-logo" alt=""></span>
+            </div>
+            <div class="links">
+                <div class="link" ><a href="#about">About</a></div>
+                <div class="link" ><a href="#skills">Skills</a></div>
+                <div class="link" ><a href="#projects">Projects</a></div>
+                <div class="link contact-btn"><a href="#contact">Contact</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="toggleMenu()"></i>
+        </div>
+        <div class="dropdown">
+            <a href="#home" onclick="toggleMenu()">Home</a>
+            <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#skills" onclick="toggleMenu()">Skills</a>
+            <a href="#projects" onclick="toggleMenu()">Projects</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="main-container">
+            <div class="image" >
+                <img src="images/profile.jpg" alt="">
+            </div>
+            <div class="content">
+                <h1 data-aos="fade-left" >Hey I'm <span>Ezekiel B. Pilar</span></h1>
+                <div class="typewriter"  data-aos-delay="900">
+                    I'm a <span class="typing-text"></span>
+                </div>                
+                <p d>As a Information Technology student, I would like to seek an opportunity to expand my knowledge and utilize my skills and gain further experience.</p>
+                <div class="btn">
+                    <a href="files/RESUME FOR IT INTERNSHIP.pdf" download>
+                        <button>Download CV</button>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>
+            <span class="line"></span>
+            SKILLS
+            <span class="line"></span>
+        </h2>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <img src="images/pythonLogo.jpg" alt="">
+                <p>Python</p>
+            </div>
+            <div class="skill-box">
+                <img src="images/phpLogo.png" alt="">
+                <p>PHP</p>
+            </div>
+            <div class="skill-box">
+                <img src="images/JavaLogo.png" alt="">
+                <p>Java</p>
+            </div>
+            <div class="skill-box">
+                <img src="images/JavaScript-logo.png" alt="">
+                <p>JavaScript</p>
+            </div>
+            <div class="skill-box">
+                <img src="images/SQLLogo.png" alt="">
+                <p>SQL</p>
+            </div>
+          
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>
+            <span class="line"></span>
+            PROJECTS
+            <span class="line"></span>
+        </h2>
+        
+        <div class="projects-grid">
+            <div class="project-box"> <img src="images/Project1.jpg" alt="">
+            <p>HRIS with tag matching AI for Gammacare Medical Service Inc.
+                this helps our client to decide which candidate fits based on the position they're applying for.
+            </p></div>
+            <div class="project-box">Project 2</div>
+            <div class="project-box">Project 3</div>
+        </div>
+    </section>
+    
+    
+    <section id="about">
+        <h2>
+            <span class="line"></span>
+            ABOUT ME
+            <span class="line"></span>
+        </h2>
+        <div class="about-container">
+            
+            <img src="images/profile.jpg" alt="Owner's Photo">
+            <div class="about-info">
+                <p>Hi, I'm Ezekiel B. Pilar! I'm an Information Technology student with a passion for web development and photography. I love the process of building websites—from writing clean, functional code to designing user-friendly interfaces. Seeing an idea come to life on the screen is something that excites me.
+
+                    Aside from coding, I have a creative side that comes out through photography. Capturing moments, playing with lighting, and telling stories through images is something I truly enjoy. Whether it's behind a camera or in front of a screen, I love creating and bringing ideas to life.
+                    
+                    I'm always eager to learn, improve my skills, and explore new opportunities in both web development and photography.</p>
+                
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <footer id="footer">
+        <div class="footer-container">
+            <h2>Contact me</h2>
+            <p><strong>Address:</strong> Pangarap Village Caloocan City</p>
+            <p><strong>Phone:</strong> 09994111811</p>
+            <p><strong>Email:</strong> <a href="#">ezekielpilar27@gmail.com</a></p>
+            <div class="content">
+                <div class="social-links" >
+                    <a href="#" target="_blank"><i class="fa-brands fa-github" ></i></a>
+                    <a href="https://www.facebook.com/ezekiel.pilar.1/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <button class="return-home-btn">&#8593;</button>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({offset:0});
+    </script>
+    <script>
+       // Smooth scrolling effect for navbar background change
+window.addEventListener("scroll", function () {
+    let nav = document.querySelector("nav");
+    if (window.scrollY > 50) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const textElement = document.querySelector(".typing-text");
+    const text = "Developer";
+    let index = 0;
+
+    function typeText() {
+        textElement.textContent = text.slice(0, index);
+        index++;
+
+        if (index > text.length) {
+            setTimeout(eraseText, 1000); // Pause before erasing
+        } else {
+            setTimeout(typeText, 200); // Typing speed
+        }
+    }
+
+    function eraseText() {
+        index--;
+        textElement.textContent = text.slice(0, index);
+
+        if (index === 0) {
+            setTimeout(typeText, 500); // Pause before retyping
+        } else {
+            setTimeout(eraseText, 100); // Erasing speed
+        }
+    }
+
+    typeText(); // Start the effect
+});
+
+// Mobile Menu Toggle
+function toggleMenu() {
+    let dropdown = document.querySelector(".dropdown");
+    dropdown.classList.toggle("show");
+}
+window.addEventListener("scroll", function () {
+    let nav = document.querySelector("nav");
+    let returnHomeBtn = document.querySelector(".return-home-btn");
+    let aboutSection = document.getElementById("skills");
+
+    // Check if the about section is in view
+    if (window.scrollY > aboutSection.offsetTop) {
+        nav.classList.add("hide-nav"); // Hide navbar when reaching about section
+        returnHomeBtn.classList.add("show"); // Show return button
+    } else {
+        nav.classList.remove("hide-nav");
+        returnHomeBtn.classList.remove("show"); // Hide return button when above about section
+    }
+
+    // Scroll event for navbar color change
+    if (window.scrollY > 50) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
+
+// Scroll to the top when return button is clicked
+document.querySelector(".return-home-btn").addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+        document.querySelectorAll(".links a, .dropdown a").forEach(anchor => {
+            anchor.addEventListener("click", function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute("href").substring(1); // Remove #
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
