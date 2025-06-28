@@ -81,10 +81,7 @@ nav.hide-nav {
 
  
 
-section {
-    min-height: 100vh; /* Each section takes full screen height */
-    padding: 80px 0; /* Adds space, preventing content from hiding behind navbar */
-}
+
 
 #home {
     padding-top: 10vh; /* Prevents home section from being hidden under navbar */
@@ -217,7 +214,7 @@ section {
 }
 
 section {
-    min-height: 100vh; /* Ensures each section takes up full screen height */
+     /*min-height: 100vh; Ensures each section takes up full screen height */
     padding: 50px 0; /* Adds some space */
 }
 
@@ -358,40 +355,56 @@ h2 {
 }
 
 
-/* Skill Section */
+/* Carousel Styles for Skills Section */
 #skills {
     padding: 20px;
     text-align: center;
-    color:#ffffff
+    color: #ffffff;
+    overflow: hidden;
 }
 
-.skills-grid {
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    overflow: hidden;
+}
+
+.skills-carousel {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 200px;
+    align-items: center;
+    animation: scroll-right 20s linear infinite;
+    gap: 30px;
 }
 
 .skill-box {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-basis: 30%; /* Makes each box take 30% of the container */
+    min-width: 300px;
     padding: 30px;
     background-color: #1a1a1a;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
     transition: transform 0.3s ease-in-out;
+    flex-shrink: 0;
 }
-.skill-box:hover{
+
+.skill-box:hover {
     transform: scale(1.05);
+    animation-play-state: paused;
 }
+
+.carousel-container:hover .skills-carousel {
+    animation-play-state: paused;
+}
+
 .skill-box img {
-    width: 50px; /* Adjust the width of the logo */
+    width: 50px;
     height: auto;
-    margin-right: 20px; /* Space between the logo and the name */
+    margin-right: 20px;
 }
 
 .skill-box p {
@@ -400,16 +413,43 @@ h2 {
     margin: 0;
 }
 
-/* Make sure the layout is responsive */
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* Responsive adjustments for carousel */
 @media (max-width: 768px) {
     .skill-box {
-        flex-basis: 45%; /* Adjusts the layout for smaller screens */
+        min-width: 250px;
+        padding: 20px;
+    }
+    
+    .skill-box p {
+        font-size: 1.2rem;
+    }
+    
+    .skills-carousel {
+        animation-duration: 15s;
     }
 }
 
 @media (max-width: 480px) {
     .skill-box {
-        flex-basis: 100%; /* Stacks items for very small screens */
+        min-width: 200px;
+        padding: 15px;
+    }
+    
+    .skill-box p {
+        font-size: 1rem;
+    }
+    
+    .skills-carousel {
+        animation-duration: 12s;
     }
 }
 
