@@ -45,6 +45,8 @@ nav.hide-nav {
 }
 a{
 cursor: pointer;
+color: white;
+text-decoration: none;
 }
 a:hover{
 color: rgba(35,81,103,1);
