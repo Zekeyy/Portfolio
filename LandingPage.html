@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="LandingPage.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
 </head>
 <body>
     <nav>
@@ -58,28 +59,50 @@
             SKILLS
             <span class="line"></span>
         </h2>
-        <div class="skills-grid">
-            <div class="skill-box">
-                <img src="images/pythonLogo.jpg" alt="">
-                <p>Python</p>
+        <div class="carousel-container">
+            <div class="skills-carousel">
+                <div class="skill-box">
+                    <img src="images/pythonLogo.jpg" alt="">
+                    <p>Python</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/phpLogo.png" alt="">
+                    <p>PHP</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/JavaLogo.png" alt="">
+                    <p>Java</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/JavaScript-logo.png" alt="">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/SQLLogo.png" alt="">
+                    <p>SQL</p>
+                </div>
+                <!-- Duplicate skills for infinite loop -->
+                <div class="skill-box">
+                    <img src="images/pythonLogo.jpg" alt="">
+                    <p>Python</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/phpLogo.png" alt="">
+                    <p>PHP</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/JavaLogo.png" alt="">
+                    <p>Java</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/JavaScript-logo.png" alt="">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-box">
+                    <img src="images/SQLLogo.png" alt="">
+                    <p>SQL</p>
+                </div>
             </div>
-            <div class="skill-box">
-                <img src="images/phpLogo.png" alt="">
-                <p>PHP</p>
-            </div>
-            <div class="skill-box">
-                <img src="images/JavaLogo.png" alt="">
-                <p>Java</p>
-            </div>
-            <div class="skill-box">
-                <img src="images/JavaScript-logo.png" alt="">
-                <p>JavaScript</p>
-            </div>
-            <div class="skill-box">
-                <img src="images/SQLLogo.png" alt="">
-                <p>SQL</p>
-            </div>
-          
         </div>
     </section>
 
@@ -142,97 +165,9 @@
     
     
     <button class="return-home-btn">&#8593;</button>
+    
+    <!-- External JavaScript files -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({offset:0});
-    </script>
-    <script>
-       // Smooth scrolling effect for navbar background change
-window.addEventListener("scroll", function () {
-    let nav = document.querySelector("nav");
-    if (window.scrollY > 50) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const textElement = document.querySelector(".typing-text");
-    const text = "Developer";
-    let index = 0;
-
-    function typeText() {
-        textElement.textContent = text.slice(0, index);
-        index++;
-
-        if (index > text.length) {
-            setTimeout(eraseText, 1000); // Pause before erasing
-        } else {
-            setTimeout(typeText, 200); // Typing speed
-        }
-    }
-
-    function eraseText() {
-        index--;
-        textElement.textContent = text.slice(0, index);
-
-        if (index === 0) {
-            setTimeout(typeText, 500); // Pause before retyping
-        } else {
-            setTimeout(eraseText, 100); // Erasing speed
-        }
-    }
-
-    typeText(); // Start the effect
-});
-
-// Mobile Menu Toggle
-function toggleMenu() {
-    let dropdown = document.querySelector(".dropdown");
-    dropdown.classList.toggle("show");
-}
-window.addEventListener("scroll", function () {
-    let nav = document.querySelector("nav");
-    let returnHomeBtn = document.querySelector(".return-home-btn");
-    let aboutSection = document.getElementById("skills");
-
-    // Check if the about section is in view
-    if (window.scrollY > aboutSection.offsetTop) {
-        nav.classList.add("hide-nav"); // Hide navbar when reaching about section
-        returnHomeBtn.classList.add("show"); // Show return button
-    } else {
-        nav.classList.remove("hide-nav");
-        returnHomeBtn.classList.remove("show"); // Hide return button when above about section
-    }
-
-    // Scroll event for navbar color change
-    if (window.scrollY > 50) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
-});
-
-// Scroll to the top when return button is clicked
-document.querySelector(".return-home-btn").addEventListener("click", function() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-        document.querySelectorAll(".links a, .dropdown a").forEach(anchor => {
-            anchor.addEventListener("click", function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute("href").substring(1); // Remove #
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                }
-            });
-        });
-        
-    </script>
+    <script src="LandingPage.js"></script>
 </body>
 </html>
