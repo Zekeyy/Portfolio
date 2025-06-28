@@ -43,7 +43,12 @@ nav.hide-nav {
     top: -100px; /* Hide navbar when about section is reached */
     transition: top 0.4s ease-in-out;
 }
-
+a{
+cursor: pointer;
+}
+a::hover{
+color: rgba(35,81,103,1);
+}
 .return-home-btn {
     position: fixed;
     bottom: 20px;
